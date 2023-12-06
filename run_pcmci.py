@@ -14,7 +14,7 @@ def load_ts(filename):
 suffix='.daily.detrend.csv'
 f_nics=['gun_data/raw/background_checks_daily.np']
 f_twit=['gun_data/raw/users_count_daily_proreg.np',
-            'gun_data/raw/users_count_daily_antireg.np']
+        'gun_data/raw/users_count_daily_antireg.np'][::-1]
 #'gun_data/raw/media_violence.np',
 f_med=[
             'gun_data/raw/media_regulation.np',
@@ -46,9 +46,9 @@ dataframe = pp.DataFrame(data,
 
 pcmci=PCMCI( 
     dataframe=dataframe, 
-    cond_ind_test=CMIknn(sig_samples=250),verbosity=4)
+    cond_ind_test=CMIknn(sig_samples=2000),verbosity=4)
 
-results = pcmci_corr1.run_pcmci(tau_max=2, pc_alpha=0.05, max_conds_dim=2)
+results = pcmci.run_pcmci(tau_max=3, pc_alpha=0.05, max_conds_dim=2, max_conds_px=2)
 
 pcmci.print_significant_links(
     p_matrix = results['p_matrix'],

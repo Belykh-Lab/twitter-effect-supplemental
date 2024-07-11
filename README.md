@@ -8,9 +8,14 @@ The following repository contains the time series data and source code for all a
  media_violence.np <---> News articles (violent crime)
  users_count_daily_proreg.np <---> Number of tweets per day (pro-regulation organizations)
  users_count_daily_antireg.np <---> Number of tweets per day (anti-regulation organizations)
- 
+
+# Collecting Tweets
+
 For each organization listed in the paper, the number of tweets per day was obtained using the twarc command:
+
+```{bash}
 twarc2 "from:$ORGNAME" gun --start-time=2012-01-01 --end-time=2020-01-01 --granularity=day --archive counts_$ORGNAME.jsonl
+```
 
 However, note that this command will no longer work due to the recent shutdown of the Twitter Academic Research API, and we are likely prohibited from redistributing or retaining the original count data for the same reason.  Hence, only tweet counts aggregated by user category are reported here; they are sufficient to reproduce the results of the paper.  All proquest API searches were conducted using the included selenium script test_proquestsearch.py.  It required several iterations to complete an entire search, and an account and institutional subscription to ProQuest is required.  Users will also need to interact with the script manually twice; once to accept cookies and once to select the start date of the search.
 

@@ -31,7 +31,7 @@ and
 
 `PCMCI+ 7 day ParCorr.ipynb`
 
-Additionally, the vector files for Fig 2 can be found in `svg/figure_2.svg`
+Additionally, the vector files for Fig 2 can be found in `scg/figure_2.svg` (sorry for the typo. I should have named the directory svg.)
 
 # How to cite
 
